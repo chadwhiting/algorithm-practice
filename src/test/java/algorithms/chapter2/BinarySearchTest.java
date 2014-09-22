@@ -48,8 +48,9 @@ public class BinarySearchTest {
 
     private void testArray(int[] array) {
         for (int key : TEST_KEYS) {
-            int expected = TEST_KEYS[key];
-            int actual = TEST_KEYS[binarySearch.rank(array, 0, array.length, key)];
+            int expected = (key < array.length) ? TEST_KEYS[key] : -1;
+            int rank = binarySearch.rank(array, 0, array.length - 1, key);
+            int actual = (-1 == rank) ? rank : TEST_KEYS[rank];
             assertEquals(expected, actual);
         }
     }

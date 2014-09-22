@@ -1,10 +1,9 @@
 package algorithms.chapter2;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 public class MergeSortBottomUp extends MergeSort {
+    // TODO there is a problem with this implementation
+    // Temporarily commenting out
+    /*
     public void sort(int[] a) {
         System.out.println("Using bottom up sort");
         int N = a.length;
@@ -15,11 +14,5 @@ public class MergeSortBottomUp extends MergeSort {
             }
         }
     }
-
-    public static void main(String[] args) throws IOException {
-        MergeSort sort = new MergeSortBottomUp();
-        try (BufferedReader in = new BufferedReader(new InputStreamReader(System.in))) {
-            sort.promptForInput(in);
-        }
-    }
+    */
 }

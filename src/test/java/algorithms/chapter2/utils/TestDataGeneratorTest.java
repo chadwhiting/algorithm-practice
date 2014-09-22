@@ -9,48 +9,9 @@ import static org.junit.Assert.assertTrue;
 @Test(groups = {"unit"})
 public class TestDataGeneratorTest {
 
+    private static final int LARGE_ARRAY_SIZE = (int) 1e6;
+    private static final int SMALL_ARRAY_SIZE = (int) 1e3;
     private TestDataGenerator testDataGenerator;
-
-    @Before
-    public void init() {
-        testDataGenerator = new TestDataGenerator();
-    }
-
-    @Test
-    public void testSortedArrayOf100Elements() {
-        int[] array = testDataGenerator.getSortedArray(100);
-        assertTrue(isArraySortedAscending(array));
-    }
-
-    @Test
-    public void testSortedArrayOf100_000_000Elements() {
-        int[] array = testDataGenerator.getSortedArray((int) 1e8);
-        assertTrue(isArraySortedAscending(array));
-    }
-
-    @Test
-    public void testReverseSortedArrayOf100Elements() {
-        int[] array = testDataGenerator.getReverseSortedArray(100);
-        assertTrue(isArraySortedDescending(array));
-    }
-
-    @Test
-    public void testReverseSortedArrayOf100_000_000Elements() {
-        int[] array = testDataGenerator.getReverseSortedArray((int) 1e8);
-        assertTrue(isArraySortedDescending(array));
-    }
-
-    @Test
-    public void testRandomArrayOf100Elements() {
-        int[] array = testDataGenerator.getRandomlyOrderedArray(100);
-        assertFalse(isArraySortedAscending(array) || (isArraySortedDescending(array)));
-    }
-
-    @Test
-    public void testRandomArrayOf100_000_000Elements() {
-        int[] array = testDataGenerator.getRandomlyOrderedArray((int) 1e8);
-        assertFalse(isArraySortedAscending(array) || (isArraySortedDescending(array)));
-    }
 
     public static boolean isArraySortedAscending(int[] array) {
         for (int i = 1; i < array.length; i++) {
@@ -68,5 +29,46 @@ public class TestDataGeneratorTest {
             }
         }
         return true;
+    }
+
+    @Before
+    public void init() {
+        testDataGenerator = new TestDataGenerator();
+    }
+
+    @Test
+    public void testSmallSortedArrayOfElements() {
+        int[] array = testDataGenerator.getSortedArray(SMALL_ARRAY_SIZE);
+        assertTrue(isArraySortedAscending(array));
+    }
+
+    @Test
+    public void testLargeSortedArrayOfElements() {
+        int[] array = testDataGenerator.getSortedArray(LARGE_ARRAY_SIZE);
+        assertTrue(isArraySortedAscending(array));
+    }
+
+    @Test
+    public void testSmallReverseSortedArrayOfElements() {
+        int[] array = testDataGenerator.getReverseSortedArray(SMALL_ARRAY_SIZE);
+        assertTrue(isArraySortedDescending(array));
+    }
+
+    @Test
+    public void testLargeReverseSortedArrayOfElements() {
+        int[] array = testDataGenerator.getReverseSortedArray(LARGE_ARRAY_SIZE);
+        assertTrue(isArraySortedDescending(array));
+    }
+
+    @Test
+    public void testSmallRandomArrayOfElements() {
+        int[] array = testDataGenerator.getRandomlyOrderedArray(SMALL_ARRAY_SIZE);
+        assertFalse(isArraySortedAscending(array) || (isArraySortedDescending(array)));
+    }
+
+    @Test
+    public void testLargeRandomArrayOfElements() {
+        int[] array = testDataGenerator.getRandomlyOrderedArray(LARGE_ARRAY_SIZE);
+        assertFalse(isArraySortedAscending(array) || (isArraySortedDescending(array)));
     }
 }
