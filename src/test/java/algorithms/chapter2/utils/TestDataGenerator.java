@@ -2,13 +2,10 @@ package algorithms.chapter2.utils;
 
 import java.util.Random;
 
-/**
- * Created by cwhiting on 9/21/14.
- */
 public class TestDataGenerator {
 
-    public static final int LARGE_ARRAY_SIZE = (int) 1e8;
-    public static final int MEDIUM_ARRAY_SIZE = (int) 1e5;
+    public static final int LARGE_ARRAY_SIZE = (int) 1e6;
+    public static final int MEDIUM_ARRAY_SIZE = (int) 1e4;
     public static final int SMALL_ARRAY_SIZE = (int) 1e3;
     public static final int NUMBER_OF_TEST_KEYS = (int) 1e3;
 
