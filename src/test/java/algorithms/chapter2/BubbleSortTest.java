@@ -2,11 +2,12 @@ package algorithms.chapter2;
 
 import algorithms.chapter2.utils.TestDataGenerator;
 import algorithms.chapter2.utils.TestDataGeneratorTest;
-import org.junit.Before;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import static org.junit.Assert.assertTrue;
+import static org.testng.Assert.assertTrue;
+
 
 @Test(groups = {"unit"})
 public class BubbleSortTest {
@@ -39,7 +40,7 @@ public class BubbleSortTest {
         SMALL_REVERSE_ARRAY = generator.getReverseSortedArray(TestDataGenerator.SMALL_ARRAY_SIZE);
     }
 
-    @Before
+    @BeforeMethod
     public void init() {
         sort = new BubbleSort();
     }
