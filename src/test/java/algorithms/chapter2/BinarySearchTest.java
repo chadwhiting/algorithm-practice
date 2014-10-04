@@ -1,11 +1,11 @@
 package algorithms.chapter2;
 
 import algorithms.chapter2.utils.TestDataGenerator;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.testng.Assert.assertEquals;
 
 @Test(groups = {"unit"})
 public class BinarySearchTest {
@@ -26,7 +26,7 @@ public class BinarySearchTest {
         TEST_KEYS = generator.getSortedArray(TestDataGenerator.NUMBER_OF_TEST_KEYS);
     }
 
-    @Before
+    @BeforeMethod
     public void init() {
         binarySearch = new BinarySearch();
     }
@@ -51,7 +51,7 @@ public class BinarySearchTest {
             int expected = (key < array.length) ? TEST_KEYS[key] : -1;
             int rank = binarySearch.rank(array, 0, array.length - 1, key);
             int actual = (-1 == rank) ? rank : TEST_KEYS[rank];
-            assertEquals(expected, actual);
+            assertEquals(actual, expected);
         }
     }
 }

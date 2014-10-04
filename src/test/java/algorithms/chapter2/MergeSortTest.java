@@ -2,10 +2,10 @@ package algorithms.chapter2;
 
 import algorithms.chapter2.utils.TestDataGenerator;
 import algorithms.chapter2.utils.TestDataGeneratorTest;
-import org.junit.Before;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import static org.junit.Assert.assertTrue;
+import static org.testng.Assert.assertTrue;
 
 @Test(groups = {"unit"})
 public class MergeSortTest {
@@ -21,7 +21,7 @@ public class MergeSortTest {
     protected int[] SMALL_RANDOM_ARRAY;
     protected int[] SMALL_REVERSE_ARRAY;
 
-    @Before
+    @BeforeMethod
     public void init() {
         mergeSort = new MergeSort();
         generator = new TestDataGenerator();
