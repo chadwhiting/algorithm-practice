@@ -3,19 +3,18 @@ package algorithms.chapter4;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import static algorithms.chapter4.MaximumSubarrayBruteForce.Tuple;
+import static algorithms.chapter4.MaximumSubarrayInLinearTime.Tuple;
 import static org.testng.Assert.assertEquals;
 
 @Test(groups = {"unit"})
-public class MaximumSubarrayBruteForceTest {
+public class MaximumSubarrayInLinearTimeTest {
 
-    private MaximumSubarrayBruteForce maximumSubarray;
+    private MaximumSubarrayInLinearTime maximumSubarray;
 
     @BeforeMethod
     public void init() {
-        maximumSubarray = new MaximumSubarrayBruteForce();
+        maximumSubarray = new MaximumSubarrayInLinearTime();
     }
-
 
     @Test
     public void testFindMaximumSubarray() throws Exception {
@@ -29,7 +28,7 @@ public class MaximumSubarrayBruteForceTest {
         int actualMaxRight;
         int actualSum;
 
-        Tuple tuple = maximumSubarray.findMaximumSubarray(array, 0, array.length - 1);
+        Tuple tuple = maximumSubarray.findMaximumSubarray(array);
 
         actualMaxLeft = tuple.maxLeft;
         actualMaxRight = tuple.maxRight;
@@ -52,7 +51,7 @@ public class MaximumSubarrayBruteForceTest {
         int actualMaxRight;
         int actualSum;
 
-        Tuple tuple = maximumSubarray.findMaximumSubarray(array, 0, array.length - 1);
+        Tuple tuple = maximumSubarray.findMaximumSubarray(array);
 
         actualMaxLeft = tuple.maxLeft;
         actualMaxRight = tuple.maxRight;
@@ -75,7 +74,7 @@ public class MaximumSubarrayBruteForceTest {
         int actualMaxRight;
         int actualSum;
 
-        Tuple tuple = maximumSubarray.findMaximumSubarray(array, 0, array.length - 1);
+        Tuple tuple = maximumSubarray.findMaximumSubarray(array);
 
         actualMaxLeft = tuple.maxLeft;
         actualMaxRight = tuple.maxRight;
@@ -97,7 +96,7 @@ public class MaximumSubarrayBruteForceTest {
         int actualMaxRight;
         int actualSum;
 
-        Tuple tuple = maximumSubarray.findMaximumSubarray(array, 0, array.length - 1);
+        Tuple tuple = maximumSubarray.findMaximumSubarray(array);
 
         actualMaxLeft = tuple.maxLeft;
         actualMaxRight = tuple.maxRight;

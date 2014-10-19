@@ -26,9 +26,9 @@ public class MaximumSubarrayTest {
 
         final int[] array = {13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7};
 
-        int actualMaxLeft = 0;
-        int actualMaxRight = 0;
-        int actualSum = 0;
+        int actualMaxLeft;
+        int actualMaxRight;
+        int actualSum;
 
         Method method = maximumSubarray.getClass().getDeclaredMethod("findMaxCrossingSubarray",
                 int[].class, int.class, int.class, int.class);
@@ -52,9 +52,9 @@ public class MaximumSubarrayTest {
 
         final int[] array = {13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7};
 
-        int actualMaxLeft = 0;
-        int actualMaxRight = 0;
-        int actualSum = 0;
+        int actualMaxLeft;
+        int actualMaxRight;
+        int actualSum;
 
         Tuple tuple = maximumSubarray.findMaximumSubarray(array, 0, array.length - 1);
 
@@ -75,9 +75,9 @@ public class MaximumSubarrayTest {
 
         final int[] array = {-10, -3, -5, -4};
 
-        int actualMaxLeft = 0;
-        int actualMaxRight = 0;
-        int actualSum = 0;
+        int actualMaxLeft;
+        int actualMaxRight;
+        int actualSum;
 
         Tuple tuple = maximumSubarray.findMaximumSubarray(array, 0, array.length - 1);
 
@@ -98,9 +98,31 @@ public class MaximumSubarrayTest {
 
         final int[] array = {-10, -3, -5, -4, -1, -6};
 
-        int actualMaxLeft = 0;
-        int actualMaxRight = 0;
-        int actualSum = 0;
+        int actualMaxLeft;
+        int actualMaxRight;
+        int actualSum;
+
+        Tuple tuple = maximumSubarray.findMaximumSubarray(array, 0, array.length - 1);
+
+        actualMaxLeft = tuple.maxLeft;
+        actualMaxRight = tuple.maxRight;
+        actualSum = tuple.sum;
+
+        assertEquals(actualMaxLeft, expectedMaxLeft);
+        assertEquals(actualMaxRight, expectedMaxRight);
+        assertEquals(actualSum, expectedSum);
+    }
+
+    @Test
+    public void testFindMaxSubarrayWithValuesFromWikipedia() throws Exception {
+        final int expectedMaxLeft = 3;
+        final int expectedMaxRight = 6;
+        final int expectedSum = 6;
+        final int[] array = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+
+        int actualMaxLeft;
+        int actualMaxRight;
+        int actualSum;
 
         Tuple tuple = maximumSubarray.findMaximumSubarray(array, 0, array.length - 1);
 
