@@ -48,8 +48,8 @@ class HeapSort {
     }
 
     private void maxHeapifyIterative(int index) {
-        int largest = -1;
-        while (largest != index) {
+        int largest;
+        do {
             final int leftChild = getLeftChild(index);
             final int rightChild = getRightChild(index);
 
@@ -66,7 +66,7 @@ class HeapSort {
                 index = largest;
                 largest = -1;
             }
-        }
+        } while (largest != index);
     }
 
     private void maxHeapifyRecursive(int index) {
