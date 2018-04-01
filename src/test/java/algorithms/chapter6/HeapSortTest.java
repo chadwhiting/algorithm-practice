@@ -85,4 +85,15 @@ public class HeapSortTest {
         System.out.println(Arrays.toString(actual));
         assertEquals(actual, expected);
     }
+
+    @Test
+    public void shouldBuildAMaxHeapAsExpected() {
+        // Exercise 6.4-1 step 1
+        final int[] actual = { 5, 13, 2, 25, 7, 17, 20, 8, 4 };
+        final int[] expected = { 25, 13, 20, 8, 7, 17, 2, 5, 4 };
+        final HeapSort hs = new HeapSort();
+        hs.buildMaxHeap(actual);
+        System.out.println(Arrays.toString(actual));
+        assertEquals(actual, expected);
+    }
 }
