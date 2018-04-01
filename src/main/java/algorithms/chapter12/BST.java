@@ -111,6 +111,37 @@ public class BST<T> {
         }
     }
 
+    void delete(Node n) {
+        if (null == n.left) {
+            transplant(root, n, n.right);
+        } else if (null == n.right) {
+            transplant(root, n, n.right);
+        } else {
+            Node y = minimum(n.right);
+            if (y.parent != n) {
+                transplant(root, y, y.right);
+                y.right = n.right;
+                y.right.parent = y;
+            }
+            transplant(root, n, y);
+            y.left = n.left;
+            y.left.parent = y;
+        }
+    }
+
+    void transplant(Node root, Node u, Node v) {
+        if (null == u.parent) {
+            root = v;
+        } else if (u == u.parent.left) {
+            u.parent.left = v;
+        } else {
+            u.parent.right = v;
+        }
+        if (null != v) {
+            v.parent = u.parent;
+        }
+    }
+
     private class Node {
         Node parent;
         Node right;
