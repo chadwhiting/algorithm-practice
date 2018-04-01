@@ -72,8 +72,7 @@ public class HeapSortTest {
         final int[] expected = { 16, 14, 10, 8, 7, 9, 3, 2, 4, 1 };
         final HeapSort hs = new HeapSort();
         hs.buildMaxHeap(actual);
-        System.out.println(Arrays.toString(actual));
-        assertEquals(actual, expected);
+        assertEquals(actual, expected, Arrays.toString(actual));
     }
 
     @Test
@@ -82,8 +81,7 @@ public class HeapSortTest {
         final int[] expected = { 1, 2, 3, 4, 7, 8, 9, 10, 14, 16 };
         final HeapSort hs = new HeapSort();
         hs.sort(actual);
-        System.out.println(Arrays.toString(actual));
-        assertEquals(actual, expected);
+        assertEquals(actual, expected, Arrays.toString(actual));
     }
 
     @Test
@@ -93,7 +91,16 @@ public class HeapSortTest {
         final int[] expected = { 25, 13, 20, 8, 7, 17, 2, 5, 4 };
         final HeapSort hs = new HeapSort();
         hs.buildMaxHeap(actual);
-        System.out.println(Arrays.toString(actual));
-        assertEquals(actual, expected);
+        assertEquals(actual, expected, Arrays.toString(actual));
     }
+
+    @Test
+    public void shouldSortAsExpected() {
+        // Exercise 6.4-1 step 2
+        final int[] actual = { 5, 13, 2, 25, 7, 17, 20, 8, 4 };
+        final int[] expected = { 2, 4, 5, 7, 8, 13, 17, 20, 25 };
+        hs.sort(actual);
+        assertEquals(actual, expected, Arrays.toString(actual));
+    }
+
 }
