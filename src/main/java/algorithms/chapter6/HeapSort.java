@@ -44,7 +44,29 @@ class HeapSort {
     }
 
     void maxHeapify(int index) {
-        maxHeapifyRecursive(index);
+        maxHeapifyIterative(index);
+    }
+
+    private void maxHeapifyIterative(int index) {
+        int largest = -1;
+        while (largest != index) {
+            final int leftChild = getLeftChild(index);
+            final int rightChild = getRightChild(index);
+
+            if (leftChild <= heapSize && heap[leftChild] > heap[index]) {
+                largest = leftChild;
+            } else {
+                largest = index;
+            }
+            if (rightChild <= heapSize && heap[rightChild] > heap[largest]) {
+                largest = rightChild;
+            }
+            if (largest != index) {
+                swap(index, largest);
+                index = largest;
+                largest = -1;
+            }
+        }
     }
 
     private void maxHeapifyRecursive(int index) {
