@@ -88,6 +88,36 @@ class HeapSort {
         }
     }
 
+    int getHeapMaximum() {
+        return heap[0];
+    }
+
+    int heapExtractMax() {
+        final int max = getHeapMaximum();
+        heap[0] = heap[heapSize];
+        heapSize--;
+        maxHeapify(0);
+        return max;
+    }
+
+    void heapIncreaseKey(int index, int key) {
+        heap[index] = key;
+        while (index > 0 && heap[getParent(index)] < heap[index]) {
+            swap(index, getParent(index));
+            index = getParent(index);
+        }
+    }
+
+    int[] maxHeapInsert(int key) {
+        heapSize++;
+        int[] oldHeap = heap;
+        heap = new int[heapSize+1];
+        System.arraycopy(oldHeap, 0, heap, 0, oldHeap.length);
+        heap[heapSize] = Integer.MIN_VALUE;
+        heapIncreaseKey(heapSize, key);
+        return heap;
+    }
+
     void buildMaxHeap(int[] a) {
         heapSize = a.length - 1;
         heap = a;

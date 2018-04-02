@@ -103,4 +103,46 @@ public class HeapSortTest {
         assertEquals(actual, expected, Arrays.toString(actual));
     }
 
+    @Test
+    public void shouldGetExpectedMaximum() {
+        final int[] heap = { 16, 14, 10, 8, 7, 9, 3, 2, 4, 1 };
+        hs.buildMaxHeap(heap);
+        assertEquals(hs.getHeapMaximum(), 16);
+    }
+
+    @Test
+    public void shouldExtractExpectedMaximum() {
+        final int[] heap = { 16, 14, 10, 8, 7, 9, 3, 2, 4, 1 };
+        hs.buildMaxHeap(heap);
+        assertEquals(hs.heapExtractMax(), 16);
+        assertEquals(hs.getHeapMaximum(), 14);
+    }
+
+    @Test
+    public void shouldIncreaseKeyThatBecomesLargerThanParent() {
+        final int[] heap = { 10, 5, 7 };
+        final int[] expected = { 11, 5, 10 };
+        hs.buildMaxHeap(heap);
+        hs.heapIncreaseKey(2, 11);
+        assertEquals(heap, expected, Arrays.toString(heap));
+    }
+
+    @Test
+    public void shouldIncreaseKeyThatRemainsSmallerThanParent() {
+        final int[] heap = { 10, 5, 7 };
+        final int[] expected = { 10, 5, 9 };
+        hs.buildMaxHeap(heap);
+        hs.heapIncreaseKey(2, 9);
+        assertEquals(heap, expected, Arrays.toString(heap));
+    }
+
+    @Test
+    public void shouldInsertKey() {
+        final int[] heap = { 10, 5, 7, 2, 3 };
+        final int[] expected = { 10, 5, 8, 2, 3, 7 };
+        hs.buildMaxHeap(heap);
+        final int[] actual = hs.maxHeapInsert(8);
+        assertEquals(actual, expected, Arrays.toString(actual));
+    }
+
 }
